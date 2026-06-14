@@ -127,19 +127,62 @@ canvas {
   position: relative;
 }
 
-.six img {
+.six .photo-stage {
+  background: #fffdf8;
+  border: 1px solid rgba(226, 176, 166, 0.78);
+  border-radius: 6px;
+  box-shadow:
+    0 18px 36px rgba(92, 54, 45, 0.16),
+    0 3px 10px rgba(226, 176, 166, 0.22);
+  box-sizing: border-box;
+  display: inline-block;
+  max-width: 100%;
+  padding: 10px 10px 34px;
+  position: relative;
+  transform: rotate(-1.2deg);
+  width: min(78vw, 380px);
+}
+
+.six .photo-stage::after {
+  background: linear-gradient(90deg, rgba(255, 168, 184, 0), rgba(255, 168, 184, 0.45), rgba(237, 196, 116, 0.38), rgba(255, 168, 184, 0));
+  border-radius: 999px;
+  bottom: 15px;
+  content: "";
+  height: 2px;
+  left: 18%;
+  position: absolute;
+  right: 18%;
+}
+
+.six .photo-print {
+  position: relative;
+}
+
+.six img,
+.six .lydia-dp {
   display: inline-block;
   max-width: 100%;
   height: auto;
 }
 
+.six .lydia-dp {
+  border: 1px solid rgba(237, 196, 116, 0.45);
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+}
+
 .six .hat {
   position: absolute;
-  width: 80px;
-  top: -70px;
-  left: 49%;
-  /* 等比例扩大图片到2倍 */
-  transform: scale(1.1);
+  left: 53.8%;
+  top: 37.2%;
+  z-index: 2;
+  width: 18%;
+  min-width: 52px;
+  max-width: 84px;
+  pointer-events: none;
+  transform: translate(-50%, -92%) rotate(-8deg);
+  transform-origin: 50% 90%;
 }
 
 .baloons img {
@@ -245,30 +288,6 @@ canvas {
 }
 
 /* Media Queries */
-@media screen and (max-height: 1000px) {
-  .six .hat {
-    left: 49%;
-  }
-}
-
-@media screen and (max-height: 800px) {
-  .six .hat {
-    left: 46%;
-  }
-}
-
-@media screen and (max-height: 700px) {
-  .six .hat {
-    left: 44%;
-  }
-}
-
-@media screen and (max-height: 850px) and (max-width: 450px) {
-  .six .hat {
-    left: 42%;
-  }
-}
-
 @media screen and (max-width: 500px) {
   .container {
     width: 90%;
@@ -289,11 +308,6 @@ canvas {
 
   .idea-6 span {
     font-size: 10rem;
-  }
-
-  .six .hat {
-    width: 50px;
-    top: -20px;
   }
 
   .wish-hbd {
