@@ -1,3 +1,5 @@
+const rspack = require('@rspack/core')
+
 module.exports = {
   context: __dirname,
   entry: './script/main.js',
@@ -12,10 +14,17 @@ module.exports = {
   output: {
     clean: true
   },
-  builtins: {
-    html: [{
-      template: './index.html',
-      inject: true
-    }]
-  }
+  plugins: [
+    new rspack.CopyRspackPlugin({
+      patterns: [
+        { from: 'index.html' },
+        { from: 'customize.json' },
+        { from: 'style', to: 'style' },
+        { from: 'script', to: 'script' },
+        { from: 'img', to: 'img' },
+        { from: 'music', to: 'music' },
+        { from: 'fonts', to: 'fonts' }
+      ]
+    })
+  ]
 }
