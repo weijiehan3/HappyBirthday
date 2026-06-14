@@ -1,4 +1,5 @@
-name = "wei-blog"
+# wrangler.toml
+name = 'birthday'
 compatibility_date = "2026-03-31" # 更为今日
 
 [assets]
